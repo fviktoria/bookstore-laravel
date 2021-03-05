@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateBooksTable extends Migration
 {
+	/*
+	 * CLI COMMAND TO CREATE MIGRATION:
+	 * php artisan make:migration create_books_table --create=books
+	 */
+
     /**
      * Run the migrations.
      *

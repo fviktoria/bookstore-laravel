@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+	$books = DB::table('books')->get();
+	return $books;
+	exit;
     return view('welcome', [
     	'firstName' => 'Viktoria',
     	'lastName' => 'Ferstl',
