@@ -4,6 +4,12 @@
     <title>Test view</title>
 </head>
 <body>
-<h1>Hello <?php echo $firstName . ' ' . $lastName; ?></h1>
+<h1>Hello {{$firstName}} {{$lastName}}</h1>
+
+<ul>
+    @foreach ($books as $b)
+        <li>{{$b}}</li>
+    @endforeach
+</ul>
 </body>
 </html>
