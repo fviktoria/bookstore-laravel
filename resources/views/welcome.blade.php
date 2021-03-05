@@ -4,11 +4,10 @@
     <title>Test view</title>
 </head>
 <body>
-<h1>Hello {{$firstName}} {{$lastName}}</h1>
 
 <ul>
-    @foreach ($books as $b)
-        <li>{{$b}}</li>
+    @foreach ($books as $book)
+        <li>{{$book->isbn}}: {{$book->title}}</li>
     @endforeach
 </ul>
 </body>
