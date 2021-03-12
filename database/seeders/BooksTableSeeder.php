@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Author;
 use App\Models\Book;
 use App\Models\Image;
 use App\Models\User;
@@ -49,6 +50,10 @@ class BooksTableSeeder extends Seeder
 		$image2->url = 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2653&q=80';
 
 		$book->images()->saveMany([$image1, $image2]);
+
+		$authors = Author::all()->pluck('id');
+		$book->authors()->sync($authors);
+
 		$book->save();
 
 		// CLI: php artisan migrate:refresh --seed
