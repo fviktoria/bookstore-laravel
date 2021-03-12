@@ -26,6 +26,7 @@ class CreateBooksTable extends Migration
             $table->date('published')->nullable();
             $table->integer('rating')->default('1');
             $table->text('description')->nullable(); // TEXT/LONGTEXT (no varchar)
+			$table->foreignId('user_id')->constrained()->onDelete('cascade'); // if user gets deleted, book gets deleted
             $table->timestamps();
         });
     }
