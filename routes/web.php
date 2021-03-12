@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 //use Illuminate\Support\Facades\DB;
 use App\Models\Book;
@@ -15,12 +16,7 @@ use App\Models\Book;
 |
 */
 
-Route::get('/', function () {
-	$books = Book::all();
-	return view('books.index', compact('books'));
-});
+Route::get('/', [BookController::class, 'index']); // delegate to book controller
 
-Route::get('/books/{id}', function ($id) {
-	$book = Book::find($id);
-	return view('books.show', compact('book'));
-});
+Route::get('/books', [BookController::class, 'index']);
+Route::get('/books/{id}', [BookController::class, 'show']);
