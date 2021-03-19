@@ -26,3 +26,8 @@ Route::get('book/{isbn}', [BookController::class, 'findByISBN']);
 Route::get('book/checkisbn/{isbn}', [BookController::class,'checkISBN']);
 
 Route::get('books/search/{searchTerm}', [BookController::class,'findBySearchTerm']);
+
+
+Route::post('book', [BookController::class, 'save']);
+
+Route::put('book/{isbn}', [BookController::class, 'update']);
