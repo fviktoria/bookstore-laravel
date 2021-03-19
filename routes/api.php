@@ -4,6 +4,7 @@ use App\Http\Controllers\BookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,3 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('books', [BookController::class, 'index']);
+Route::get('book/{isbn}', [BookController::class, 'findByISBN']);
+
+Route::get('book/checkisbn/{isbn}', [BookController::class,'checkISBN']);
+
+Route::get('books/search/{searchTerm}', [BookController::class,'findBySearchTerm']);
