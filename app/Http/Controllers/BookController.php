@@ -113,6 +113,18 @@ class BookController extends Controller
 		}
 	}
 
+	public function delete (string $isbn) : JsonResponse {
+		$book = Book::where('isbn', $isbn)->first();
+
+		if ($book != null) {
+			$book->delete();
+		} else {
+			throw new \Exception("Book doesn't exist.");
+		}
+
+		return response()->json("Book with isbn ". $isbn . " deleted successfully.", 201);
+	}
+
 	public function show($id) {
     	$book = Book::all()->find($id);
 		return view('books.show', compact('book'));

@@ -31,3 +31,5 @@ Route::get('books/search/{searchTerm}', [BookController::class,'findBySearchTerm
 Route::post('book', [BookController::class, 'save']);
 
 Route::put('book/{isbn}', [BookController::class, 'update']);
+
+Route::delete('book/{isbn}', [BookController::class, 'delete']);
